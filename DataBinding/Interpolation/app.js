@@ -1,7 +1,12 @@
 var myApp = angular.module('myApp', []);
 
-myApp.controller('mainController', ['$scope', function($scope){
+// Inject services: scope and timeout
+myApp.controller('mainController', ['$scope', '$timeout', function($scope, $timeout){
     
     $scope.name = 'John';
+    
+    $timeout(function(){
+        $scope.name = 'Someone?';
+    }, 3000);
     
 }]);
