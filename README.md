@@ -11,4 +11,16 @@ An instruction to AngularJS to manipulate a piece of the DOM.
 
 eg: Add a Class, Hide This, Create This, etc.
 
+
 Normal JS Event Loop --> Angular:[ Watch list {old and new variables in scope } --> Digest Loop ]
+
+*When using **setTimeout**, make sure to use $scope.$apply(function(){ //stuff you want to do });
+//Why? Because setTimeout is asynch and does things outside of eventloop and Angular doesn't watch it.
+
+        setTimeout(function(){
+
+            $scope.apply(function(){
+                $scope.var = 'newValue';
+            });
+
+        }, 200);
