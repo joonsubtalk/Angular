@@ -26,3 +26,6 @@ Normal JS Event Loop --> Angular:[ Watch list {old and new variables in scope } 
         }, 200);
         
 Of course, if you want to use a setTimeout, you can use: $timeout instead, and not need $scope.apply(function(){});
+
+SPA (Single Page Apps)
+Multiple controls, multiple views.
