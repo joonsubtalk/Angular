@@ -22,6 +22,8 @@ myApp.controller('mainController', ['$scope', '$filter', '$http',
             .error(function(data, status){
                 console.log(data);
             });
+        
+        // $http.post('url', {JSON OBJ })
     }                                    
                                         
 }]);
