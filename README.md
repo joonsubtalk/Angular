@@ -29,3 +29,10 @@ Of course, if you want to use a setTimeout, you can use: $timeout instead, and n
 
 SPA (Single Page Apps)
 Multiple controls, multiple views.
+
+Anchor tags:
+#location // This is a fragment identifier
+
+window.addEventListener('hashchange', function(){
+    console.log("hash changed!" + window.location.hash);
+});
