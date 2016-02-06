@@ -36,3 +36,7 @@ Anchor tags:
 window.addEventListener('hashchange', function(){
     console.log("hash changed!" + window.location.hash);
 });
+
+Routing, Templating, and Controllers.
+=====================================
+
