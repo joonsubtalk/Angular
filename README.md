@@ -40,3 +40,7 @@ window.addEventListener('hashchange', function(){
 Routing, Templating, and Controllers.
 =====================================
 
+Angular services are implemented as singletons.
+$scope is an exception to this rule; Since it's a child scope to the root scope.
+$routes, $logs, etc. are all singletons.
+custom singletons share amongst pages are all singletons.
