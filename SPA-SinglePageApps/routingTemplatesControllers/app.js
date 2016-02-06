@@ -1,6 +1,27 @@
 // tell Angular, I'm gonna use "routing" service
-var myApp = angular.module('myApp', ['routing']);
+var myApp = angular.module('myApp', ['ngRoute']);
 
-myApp.controller('mainController', ['$scope', '$location', '$log', function($scope, $location, $log){
-    $log.info($location.path());
+//avail thru routing...
+myApp.config(function($routeProvider) {
+
+    $routeProvider
+             
+    .when('/', {
+         templateUrl: 'pages/main.html', // [physical location]
+         controller: 'mainController'
+    })
+    .when('/second', {                   // route this to...
+         templateUrl: 'pages/second.html', // [physical location]
+         controller: 'secondController'    // connect and bind it to this controller.
+    })
+             
+             
+});
+
+myApp.controller('mainController', ['$scope', function($scope){
+    
+}]);
+
+myApp.controller('secondController', ['$scope', function($scope){
+    
 }]);
