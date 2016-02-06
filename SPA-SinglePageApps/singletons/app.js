@@ -40,7 +40,14 @@ myApp.service('nameService', function() {
 
 // let's use this new service we created...
 myApp.controller('mainController', ['$scope', '$log', 'nameService', function($scope, $log, nameService){
+
     $scope.name = nameService.name;
+    
+    // update this singleton: nameService everytime it's updated by watching it.
+    $scope.$watch('name', function(){
+        nameService.name = $scope.name;
+    })    
+    
     $log.log(nameService.name);
     $log.info(nameService.nameLength());
 }]);
@@ -48,4 +55,9 @@ myApp.controller('mainController', ['$scope', '$log', 'nameService', function($s
 myApp.controller('secondController', ['$scope', '$routeParams', 'nameService', function($scope, $routeParams, nameService){
     $scope.name = nameService.name;
     $scope.num = $routeParams.num || 0; // defaults to 0, just in case num is not set.
+    
+    // update this singleton: nameService everytime it's updated by watching it.
+    $scope.$watch('name', function(){
+        nameService.name = $scope.name;
+    })    
 }]);
