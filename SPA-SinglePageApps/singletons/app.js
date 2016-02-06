@@ -24,8 +24,25 @@ myApp.config(function($routeProvider) {
              
 });
 
-myApp.controller('mainController', ['$scope', function($scope){
+myApp.service('nameService', function() {
+    
+    var m = this;
+    
+    m.name = 'jsub chung';
+    
+    m.nameLength = function(){
+        // common js stuff... this keyword refers to the current function's scope, 
+        // we want to call the outer function lexically so we use m.
+        return m.name.length;
+    }
+    
+});
+
+// let's use this new service we created...
+myApp.controller('mainController', ['$scope', '$log', 'nameService', function($scope, $log, nameService){
     $scope.name = "main";
+    $log.log(nameService.name);
+    $log.info(nameService.nameLength());
 }]);
 
 myApp.controller('secondController', ['$scope', '$routeParams', function($scope, $routeParams){
