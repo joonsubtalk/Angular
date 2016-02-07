@@ -56,6 +56,9 @@ myApp.directive('searchResult', function(){
         // A for attribute, E for Element
         // E - <search-result>
         // A - <div search-result>
+        
+        // C - class <div class="search-result">
+        // N - Comment <!-- directive: search-result -->
         restrict: 'AE', // Allows for both AE/EA is default.
         // e.g. main.html // the outputted html
         template: '<a href="#" class="list-group-item"><h4 class="list-group-item-heading">Doe, John</h4><p class="list-group-item-text">555 main st., San Francisco, CA 93201</p></a>',
