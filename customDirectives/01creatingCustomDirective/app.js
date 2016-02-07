@@ -52,7 +52,11 @@ myApp.controller('secondController', ['$scope', '$routeParams', function($scope,
 myApp.directive('searchResult', function(){
    // returns a JS Object directive
     return {
-       // properties defined
+        // properties defined
+        // A for attribute, E for Element
+        // E - <search-result>
+        // A - <div search-result>
+        restrict: 'AE', // Allows for both AE/EA is default.
         // e.g. main.html // the outputted html
         template: '<a href="#" class="list-group-item"><h4 class="list-group-item-heading">Doe, John</h4><p class="list-group-item-text">555 main st., San Francisco, CA 93201</p></a>',
         // default = false
