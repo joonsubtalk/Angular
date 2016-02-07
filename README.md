@@ -44,3 +44,17 @@ Angular services are implemented as singletons.
 $scope is an exception to this rule; Since it's a child scope to the root scope.
 $routes, $logs, etc. are all singletons.
 custom singletons share amongst pages are all singletons.
+
+
+Services are basically factories...
+
+CustomDirectives:
+
+Normalize: To make consistent to a standard.
+>> Specifically we are dealing with text normalization, or making strings of text consistent to a standard.
+e.g. convert variable names into a consistent different standard==> camelcase.
+var this-is-a-cool-variable-name = true; // var thisIsACoolVariableName = true;
+
+custom directives: e.g. customtextinput ==> <customtextinput five-characters-only="true"></customtextinput>
+
+
