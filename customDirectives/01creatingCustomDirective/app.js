@@ -39,25 +39,20 @@ myApp.service('nameService', function() {
 });
 
 // let's use this new service we created...
-myApp.controller('mainController', ['$scope', '$log', 'nameService', function($scope, $log, nameService){
+myApp.controller('mainController', ['$scope', '$log', function($scope, $log){
 
-    $scope.name = nameService.name;
-    
-    // update this singleton: nameService everytime it's updated by watching it.
-    $scope.$watch('name', function(){
-        nameService.name = $scope.name;
-    })    
-    
-    $log.log(nameService.name);
-    $log.info(nameService.nameLength());
 }]);
 
-myApp.controller('secondController', ['$scope', '$routeParams', 'nameService', function($scope, $routeParams, nameService){
-    $scope.name = nameService.name;
-    $scope.num = $routeParams.num || 0; // defaults to 0, just in case num is not set.
-    
-    // update this singleton: nameService everytime it's updated by watching it.
-    $scope.$watch('name', function(){
-        nameService.name = $scope.name;
-    })    
+myApp.controller('secondController', ['$scope', '$routeParams', function($scope, $routeParams){
+  
 }]);
+
+//Add a new directive: (name) name will be normalized
+myApp.directive('searchResult', function(){
+   // returns a JS Object directive
+    return {
+       // properties defined
+        // e.g. main.html // the outputted html
+        template: '<a href="#" class="list-group-item"><h4 class="list-group-item-heading">Doe, John</h4><p class="list-group-item-text">555 main st., San Francisco, CA 93201</p></a>'
+   } 
+});
