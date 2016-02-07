@@ -48,11 +48,16 @@ myApp.controller('secondController', ['$scope', '$routeParams', function($scope,
 }]);
 
 //Add a new directive: (name) name will be normalized
+// Good to wrap up reuseable elements.
 myApp.directive('searchResult', function(){
    // returns a JS Object directive
     return {
        // properties defined
         // e.g. main.html // the outputted html
-        template: '<a href="#" class="list-group-item"><h4 class="list-group-item-heading">Doe, John</h4><p class="list-group-item-text">555 main st., San Francisco, CA 93201</p></a>'
+        template: '<a href="#" class="list-group-item"><h4 class="list-group-item-heading">Doe, John</h4><p class="list-group-item-text">555 main st., San Francisco, CA 93201</p></a>',
+        // default = false
+        // by having replace true the template will REPLACE <search-result> elemnt
+        // false will place the template inside the element.
+        replace: true
    } 
 });
