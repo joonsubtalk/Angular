@@ -70,7 +70,10 @@ myApp.directive('searchResult', function(){
         // false will place the template inside the element.
         replace: true,
         scope: {
-            // @ = text
+            // = : Object "equals" symbolizes 2 way binding into the directive and update passing from the             // outside.
+            // fyi: 2 way binding can get muddy
+            personObject: "=",
+            // @ : text // 1 way binding
             personName: "@",
             personAddress: "@"
         }

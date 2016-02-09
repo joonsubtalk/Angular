@@ -4,7 +4,9 @@
 <h3>Search Results</h3>
 <div class="list-group">
     <!-- adding attributes for isolated scope -->
+    <!-- don't need {{ }} if on object since interpolating is what we don't want-->
     <search-result
+        person-object="person"
         person-name="{{ person.name }}"
         person-address="{{person.address}}">
     </search-result>
