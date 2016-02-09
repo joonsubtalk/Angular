@@ -57,4 +57,13 @@ var this-is-a-cool-variable-name = true; // var thisIsACoolVariableName = true;
 
 custom directives: e.g. customtextinput ==> <customtextinput five-characters-only="true"></customtextinput>
 
+Custom Directives: Compile and Link
+-----------------------------------
+When building code, the **compiler** converts code to a lower-level language, then the **linker** generates a file the computer will actually interact with.
+e.g. Honestly, it's not exactly what AngularJS does... Should have been labeled something else... Just kinda similar...
+
+So what does *Compule* and *Link* really do?
+
+
+
 

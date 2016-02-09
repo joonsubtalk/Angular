@@ -95,6 +95,28 @@ myApp.directive('searchResult', function(){
             // & this is a function
             formattedAddressFunction: "&"
             
+        },
+        // element and attributes
+        compile: function(elem, attributes){
+            // code in here to do w/e
+            console.log('compiling...');
+            
+            // see contents of it easier...
+            console.log(elem.html());
+            
+            // linking properties
+            return {
+                pre: function(scope, elements, attrs){
+                    console.log('pre-link...');
+                    console.log(elements);
+                    
+                },
+                post: function(scope, elements, attrs){
+                    console.log('post-link...');
+                    console.log(elements);
+                    
+                }
+            }
         }
    } 
 });
