@@ -44,6 +44,9 @@ myApp.controller('mainController', ['$scope', '$log', function($scope, $log){
         name: 'Jsub Chung',
         address: '123 four ave, SF, CA 56789'
     }
+    $scope.formattedAddress = function(person){
+        return person.name + ', (' + person.address + ')';
+    }
 }]);
 
 myApp.controller('secondController', ['$scope', '$routeParams', function($scope, $routeParams){
@@ -75,7 +78,10 @@ myApp.directive('searchResult', function(){
             personObject: "=",
             // @ : text // 1 way binding
             personName: "@",
-            personAddress: "@"
+            personAddress: "@",
+            // & this is a function
+            formattedAddressFunction: "&"
+            
         }
    } 
 });
