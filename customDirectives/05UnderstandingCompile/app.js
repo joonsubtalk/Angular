@@ -97,22 +97,52 @@ myApp.directive('searchResult', function(){
             
         },
         // element and attributes
+        // compile runs once and link runs x times of repeat and each have their own scope.
+        // A new model each time, but compile runs only once setting the DOM.
+        // Linking functions: allows me to change as each directive as it is created along the way.
+        // Compile: creates the whole outer DOM.
+        // Link is ran every time a directive is used. (repeated)
+        
+        // When you have nested directives:
+        // Angular compiles directive, then pre links, then asks "are there any directives neseted?" If so, keep going (repeat)
+        //    Once Angular finds the end of the chain, it postlinks back up the chain.
+        // >> post link is safer than pre link since everything is done and ready.
+        // AngularJS: Use Post link plz... Avoid Pre...
+        
         compile: function(elem, attributes){
             // code in here to do w/e
             console.log('compiling...');
+            
+            // You can modify before directive is set.
+            // elem.removeAttr('class');
             
             // see contents of it easier...
             console.log(elem.html());
             
             // linking properties
+            // compiles... then returns a postlink just before putting to DOM.
             return {
+                /* Try not to use PRE please... No guarentee of things being available...
                 pre: function(scope, elements, attrs){
                     console.log('pre-link...');
                     console.log(elements);
                     
-                },
+                },*/
+                // scope for each individual directives.
+                // note this scope isn't dependency injection...
+                // There's no examining of the variable names given.
+                // you can name is schope, elem, attribute...
+                
                 post: function(scope, elements, attrs){
                     console.log('post-link...');
+                    
+                    console.log(scope);
+                    
+                    // you can do something for a particular instance of a directive.
+                    // NOTE: MUCH better to do ng-if or w/e to determin if class should show...
+                    if (scope.personObject.name === "Jsub Chung")
+                        elements.removeAttr('class');
+                    
                     console.log(elements);
                     
                 }

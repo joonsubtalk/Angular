@@ -61,9 +61,18 @@ Custom Directives: Compile and Link
 -----------------------------------
 When building code, the **compiler** converts code to a lower-level language, then the **linker** generates a file the computer will actually interact with.
 e.g. Honestly, it's not exactly what AngularJS does... Should have been labeled something else... Just kinda similar...
+Probably better to have called it "Initialize" and "onBind"... but w/e
 
 So what does *Compule* and *Link* really do?
+Allows you to manipulate directives before they're sent to DOM
 
 
-
+You can always nest directives... Yo dawg...
+<customDirective>
+    <customDirective>
+        <customDirective>
+            ...
+        </customDirective>
+    </customDirective>
+</customDirective>
 
