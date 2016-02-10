@@ -111,6 +111,8 @@ myApp.directive('searchResult', function(){
         
         // Link is a shorthand for compile with the post object.
         // empty compile returning a post link...
+        
+        // remember... adding things here can affect performance...
         link: function(scope, elements, attrs){
             console.log('post-link...');
 
