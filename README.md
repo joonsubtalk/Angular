@@ -76,3 +76,11 @@ You can always nest directives... Yo dawg...
     </customDirective>
 </customDirective>
 
+Transclusion: Include one document inside another
+================================================
+e.g. place a copy of one document at a particular point (of another document) inside another
+Directives are placeholders... e.g. <directive></directive>
+Why does <directive>hello world</directive>, remove "hello world"? because it replaces (rm from DOM) with the actual directive.
+
+So how do I include "hello world?" There's a directive for that... <ng-transclude></ng-transclude> //place whatever inside <directive></directive>to ng-transclude.
+
