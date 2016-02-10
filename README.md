@@ -84,3 +84,5 @@ Why does <directive>hello world</directive>, remove "hello world"? because it re
 
 So how do I include "hello world?" There's a directive for that... <ng-transclude></ng-transclude> //place whatever inside <directive></directive>to ng-transclude.
 
+
+
