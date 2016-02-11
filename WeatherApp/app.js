@@ -37,3 +37,5 @@ weatherApp.controller('homeController', ['$scope', 'cityService', function($scop
 weatherApp.controller('forecastController', ['$scope', 'cityService', function($scope, cityService){
     $scope.city = cityService.city;    
 }]);
+
+//http://api.openweathermap.org/data/2.5/forecast/daily?APPID=
