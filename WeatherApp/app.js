@@ -25,9 +25,20 @@ weatherApp.service('cityService', function(){
 });
 
 //Controllers
-weatherApp.controller('homeController', ['$scope', '$resource', 'cityService', function($scope, $resource,cityService){
+weatherApp.controller('homeController', ['$scope', '$resource', 'cityService', function($scope, $resource, cityService){
     
     $scope.city = cityService.city;
+    
+    // watch
+    $scope.$watch('city', function(){
+       cityService.city = $scope.city; 
+    });
+    
+    console.log($scope.weatherResult)
+}]);
+
+weatherApp.controller('forecastController', ['$scope', '$resource', 'cityService', function($scope, $resource, cityService){
+    $scope.city = cityService.city;    
     
     $scope.weatherAPI = 
         $resource("http://api.openweathermap.org/data/2.5/forecast/daily", {
@@ -38,17 +49,6 @@ weatherApp.controller('homeController', ['$scope', '$resource', 'cityService', f
         q: $scope.city,
         cnt: 2
     }); // gets the data and can pass obj for params
-    
-    // watch
-    $scope.$watch('city', function(){
-       cityService.city = $scope.city; 
-    });
-    
-    console.log($scope.weatherResult)
 }]);
 
-weatherApp.controller('forecastController', ['$scope', 'cityService', function($scope, cityService){
-    $scope.city = cityService.city;    
-}]);
-
-//http://api.openweathermap.org/data/2.5/forecast/city?id=524901&APPID=8a54b0712916ede57e21659b51b80f59
+//http://api.openweathermap.org/data/2.5/forecast/city?id=524901&APPID=
