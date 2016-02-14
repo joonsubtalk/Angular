@@ -15,6 +15,10 @@ weatherApp.config(function($routeProvider){
     .when('/forecast', {
         templateUrl: 'partials/forecast.html',
         controller: 'forecastController'
+    })
+    .when('/forecast/:days', {
+        templateUrl: 'partials/forecast.html',
+        controller: 'forecastController'
     })          
                   
 });
@@ -37,8 +41,10 @@ weatherApp.controller('homeController', ['$scope', '$resource', 'cityService', f
     console.log($scope.weatherResult)
 }]);
 
-weatherApp.controller('forecastController', ['$scope', '$resource', 'cityService', function($scope, $resource, cityService){
-    $scope.city = cityService.city;    
+weatherApp.controller('forecastController', ['$scope', '$resource', 'cityService', '$routeParams', function($scope, $resource, cityService, $routeParams){
+    $scope.city = cityService.city;   
+    
+    $scope.days = $routeParams.days || 2;
     
     $scope.weatherAPI = 
         $resource("http://api.openweathermap.org/data/2.5/forecast/daily", {
@@ -47,7 +53,7 @@ weatherApp.controller('forecastController', ['$scope', '$resource', 'cityService
     $scope.weatherResult = $scope.weatherAPI.get({
         APPID: "",
         q: $scope.city,
-        cnt: 2
+        cnt: $scope.days
     }); // gets the data and can pass obj for params
     
     $scope.convertKtoF = function(kelvin){
