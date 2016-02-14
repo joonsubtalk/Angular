@@ -53,6 +53,10 @@ weatherApp.controller('forecastController', ['$scope', '$resource', 'cityService
     $scope.convertKtoF = function(kelvin){
         return Math.round(kelvin * 9/5 - 459.67);  
     };
+    
+    $scope.convertToReadableDate = function(dt){
+        return new Date(dt * 1000);  
+    };
 }]);
 
 //http://api.openweathermap.org/data/2.5/forecast/city?id=524901&APPID=
