@@ -45,10 +45,14 @@ weatherApp.controller('forecastController', ['$scope', '$resource', 'cityService
         callback: "JSON_CALLBACK"}, { get : {method:"JSONP"}});
     
     $scope.weatherResult = $scope.weatherAPI.get({
-        //APPID: "",
+        APPID: "",
         q: $scope.city,
         cnt: 2
     }); // gets the data and can pass obj for params
+    
+    $scope.convertKtoF = function(kelvin){
+        return Math.round(kelvin * 9/5 - 459.67);  
+    };
 }]);
 
 //http://api.openweathermap.org/data/2.5/forecast/city?id=524901&APPID=
